@@ -1,4 +1,4 @@
-import 'package:animation_experiment/shaker_widget.dart';
+import 'package:animation_experiment/shaker_widget/shaker_widget.dart';
 import 'package:flutter/material.dart';
 
 class ShakerWidgetExample extends StatefulWidget {

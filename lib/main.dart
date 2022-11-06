@@ -1,4 +1,4 @@
-import 'package:animation_experiment/shaker_widget_example.dart';
+import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
 import 'package:flutter/material.dart';
 
 void main() {

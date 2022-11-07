@@ -1,3 +1,4 @@
+import 'package:animation_experiment/delayed_list/delayed_list_example.dart';
 import 'package:animation_experiment/resize_widget/resize_widget_example.dart';
 import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
 import 'package:flutter/material.dart';
@@ -19,10 +20,19 @@ class MenuScreen extends StatelessWidget {
               color: Colors.orangeAccent,
             ),
             VSpacer(),
+
             NavigatorButton(
               screenWidget: ResizeWidgetExample(),
               title: "Fader Widget Example",
               color: Colors.pink,
+              textColor: Colors.white,
+            ),
+            VSpacer(),
+
+            NavigatorButton(
+              screenWidget: DelayedListExample(),
+              title: "Delayed List Example",
+              color: Colors.blueGrey,
               textColor: Colors.white,
             ),
             VSpacer(),

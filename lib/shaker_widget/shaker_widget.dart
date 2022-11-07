@@ -63,6 +63,12 @@ class _ShakerWidgetState extends State<ShakerWidget> with SingleTickerProviderSt
     return 0;
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
 }
 
 class ShakeController {

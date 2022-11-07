@@ -77,4 +77,11 @@ void initState() {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
 }

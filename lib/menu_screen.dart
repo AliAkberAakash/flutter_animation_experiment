@@ -1,3 +1,4 @@
+import 'package:animation_experiment/bouncing_widget/bouncing_widget_example.dart';
 import 'package:animation_experiment/circular_animated_text/circular_animated_text_example.dart';
 import 'package:animation_experiment/delayed_list/delayed_list_example.dart';
 import 'package:animation_experiment/faded_screen/faded_screen_example.dart';
@@ -51,6 +52,14 @@ class MenuScreen extends StatelessWidget {
               screenWidget: CircularAnimatedTextExample(),
               title: "Circular Animated Text",
               color: Colors.lightGreenAccent,
+            ),
+            VSpacer(),
+
+            NavigatorButton(
+              screenWidget: BouncingWidgetExample(),
+              title: "Bouncing Box",
+              color: Colors.blueAccent,
+              textColor: Colors.white,
             ),
             VSpacer(),
           ],

@@ -65,6 +65,12 @@ class _DelayedListExampleState extends State<DelayedListExample>
     return tmp;
   }
 
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
 }
 
 class CardItem extends StatelessWidget {

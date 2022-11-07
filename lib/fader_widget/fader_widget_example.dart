@@ -37,6 +37,13 @@ class _FaderWidgetExampleState extends State<FaderWidgetExample> {
             AnimatedWidth(curve: Curves.easeInOut,),
             VSpacer(),
 
+            AnimatedWidth(curve: Curves.fastOutSlowIn,),
+            VSpacer(),
+            AnimatedWidth(curve: Curves.easeInCirc,),
+            VSpacer(),
+            AnimatedWidth(curve: Curves.easeInOutCubicEmphasized,),
+            VSpacer(),
+
           ],
         ),
       ),

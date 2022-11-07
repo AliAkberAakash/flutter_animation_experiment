@@ -10,7 +10,7 @@ class FadedScreenExample extends StatefulWidget {
 class _FadedScreenExampleState extends State<FadedScreenExample>
   with SingleTickerProviderStateMixin{
 
-final _duration = const Duration(milliseconds: 1000);
+final _duration = const Duration(milliseconds: 2000);
 
   late final AnimationController _animationController;
   late final Animation _fadeAnimation;

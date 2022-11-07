@@ -1,6 +1,6 @@
 import 'package:animation_experiment/circular_animated_text/circular_animated_text_example.dart';
 import 'package:animation_experiment/delayed_list/delayed_list_example.dart';
-import 'package:animation_experiment/faded_screen_example/faded_screen_example.dart';
+import 'package:animation_experiment/faded_screen/faded_screen_example.dart';
 import 'package:animation_experiment/resize_widget/resize_widget_example.dart';
 import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
 import 'package:flutter/material.dart';

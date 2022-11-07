@@ -15,6 +15,7 @@ class _DelayedListExampleState extends State<DelayedListExample>
 
   late final AnimationController _animationController;
   late final Animation _sizeAnimation;
+  late final Animation _fadeAnimation;
 
   @override
   void initState() {
@@ -22,6 +23,7 @@ class _DelayedListExampleState extends State<DelayedListExample>
 
     _animationController = AnimationController(vsync: this, duration: _duration);
     _sizeAnimation = Tween<double>(begin: 50, end: 0).animate(_animationController);
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(_animationController);
 
     _animationController.addListener(() {
       setState(() {});
@@ -42,7 +44,10 @@ class _DelayedListExampleState extends State<DelayedListExample>
         itemBuilder: (ctx, idx){
           return Padding(
             padding: EdgeInsets.only(top: _getTopPadding(idx)),
-            child: const CardItem(),
+            child: Opacity(
+              opacity: _fadeAnimation.value,
+              child: const CardItem(),
+            ),
           );
         }
       ),

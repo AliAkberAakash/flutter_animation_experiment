@@ -23,7 +23,7 @@ class MenuScreen extends StatelessWidget {
 
             NavigatorButton(
               screenWidget: ResizeWidgetExample(),
-              title: "Fader Widget Example",
+              title: "Resize Widget Example",
               color: Colors.pink,
               textColor: Colors.white,
             ),

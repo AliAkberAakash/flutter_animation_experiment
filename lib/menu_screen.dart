@@ -1,3 +1,4 @@
+import 'package:animation_experiment/fader_widget/fader_widget_example.dart';
 import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,12 @@ class MenuScreen extends StatelessWidget {
               color: Colors.orangeAccent,
             ),
             VSpacer(),
+            NavigatorButton(
+              screenWidget: FaderWidgetExample(),
+              title: "Fader Widget Example",
+              color: Colors.pink,
+            ),
+            VSpacer(),
           ],
         ),
       ),
@@ -33,6 +40,19 @@ class VSpacer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
+    );
+  }
+}
+
+class HSpacer extends StatelessWidget {
+
+  final double width;
+  const HSpacer({Key? key, this.width = 10}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
     );
   }
 }

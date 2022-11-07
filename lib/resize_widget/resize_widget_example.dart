@@ -1,14 +1,14 @@
 import 'package:animation_experiment/menu_screen.dart';
 import 'package:flutter/material.dart';
 
-class FaderWidgetExample extends StatefulWidget {
-  const FaderWidgetExample({Key? key}) : super(key: key);
+class ResizeWidgetExample extends StatefulWidget {
+  const ResizeWidgetExample({Key? key}) : super(key: key);
 
   @override
-  State<FaderWidgetExample> createState() => _FaderWidgetExampleState();
+  State<ResizeWidgetExample> createState() => _ResizeWidgetExampleState();
 }
 
-class _FaderWidgetExampleState extends State<FaderWidgetExample> {
+class _ResizeWidgetExampleState extends State<ResizeWidgetExample> {
 
   @override
   Widget build(BuildContext context) {
@@ -18,30 +18,30 @@ class _FaderWidgetExampleState extends State<FaderWidgetExample> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            AnimatedWidth(curve: Curves.linear,),
+            ResizeAnimateWidget(curve: Curves.linear,),
             VSpacer(),
 
-            AnimatedWidth(curve: Curves.bounceIn,),
+            ResizeAnimateWidget(curve: Curves.bounceIn,),
             VSpacer(),
-            AnimatedWidth(curve: Curves.bounceOut,),
+            ResizeAnimateWidget(curve: Curves.bounceOut,),
             VSpacer(),
-            AnimatedWidth(curve: Curves.bounceInOut,),
-            VSpacer(),
-
-            AnimatedWidth(curve: Curves.ease,),
-            VSpacer(),
-            AnimatedWidth(curve: Curves.easeIn,),
-            VSpacer(),
-            AnimatedWidth(curve: Curves.easeOut,),
-            VSpacer(),
-            AnimatedWidth(curve: Curves.easeInOut,),
+            ResizeAnimateWidget(curve: Curves.bounceInOut,),
             VSpacer(),
 
-            AnimatedWidth(curve: Curves.fastOutSlowIn,),
+            ResizeAnimateWidget(curve: Curves.ease,),
             VSpacer(),
-            AnimatedWidth(curve: Curves.easeInCirc,),
+            ResizeAnimateWidget(curve: Curves.easeIn,),
             VSpacer(),
-            AnimatedWidth(curve: Curves.easeInOutCubicEmphasized,),
+            ResizeAnimateWidget(curve: Curves.easeOut,),
+            VSpacer(),
+            ResizeAnimateWidget(curve: Curves.easeInOut,),
+            VSpacer(),
+
+            ResizeAnimateWidget(curve: Curves.fastOutSlowIn,),
+            VSpacer(),
+            ResizeAnimateWidget(curve: Curves.easeInCirc,),
+            VSpacer(),
+            ResizeAnimateWidget(curve: Curves.easeInOutCubicEmphasized,),
             VSpacer(),
 
           ],
@@ -51,16 +51,16 @@ class _FaderWidgetExampleState extends State<FaderWidgetExample> {
   }
 }
 
-class AnimatedWidth extends StatefulWidget {
+class ResizeAnimateWidget extends StatefulWidget {
 
   final Curve curve;
-  const AnimatedWidth({Key? key, required this.curve}) : super(key: key);
+  const ResizeAnimateWidget({Key? key, required this.curve}) : super(key: key);
 
   @override
-  State<AnimatedWidth> createState() => _AnimatedWidthState();
+  State<ResizeAnimateWidget> createState() => _ResizeAnimateWidgetState();
 }
 
-class _AnimatedWidthState extends State<AnimatedWidth> {
+class _ResizeAnimateWidgetState extends State<ResizeAnimateWidget> {
 
   double _animationValue = 200;
   final Duration _animationDuration = const Duration(milliseconds: 500);

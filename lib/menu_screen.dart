@@ -1,4 +1,4 @@
-import 'package:animation_experiment/fader_widget/fader_widget_example.dart';
+import 'package:animation_experiment/resize_widget/resize_widget_example.dart';
 import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +8,8 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
@@ -19,9 +20,10 @@ class MenuScreen extends StatelessWidget {
             ),
             VSpacer(),
             NavigatorButton(
-              screenWidget: FaderWidgetExample(),
+              screenWidget: ResizeWidgetExample(),
               title: "Fader Widget Example",
               color: Colors.pink,
+              textColor: Colors.white,
             ),
             VSpacer(),
           ],
@@ -75,6 +77,7 @@ class NavigatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      minWidth: double.infinity,
       color: color,
       child: Text(
         title,

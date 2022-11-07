@@ -18,14 +18,14 @@ class MenuScreen extends StatelessWidget {
           children: const [
             NavigatorButton(
               screenWidget: ShakerWidgetExample(),
-              title: "Shaker Widget Example",
+              title: "Shaker Widget",
               color: Colors.orangeAccent,
             ),
             VSpacer(),
 
             NavigatorButton(
               screenWidget: ResizeWidgetExample(),
-              title: "Resize Widget Example",
+              title: "Resize Widget",
               color: Colors.pink,
               textColor: Colors.white,
             ),
@@ -33,7 +33,7 @@ class MenuScreen extends StatelessWidget {
 
             NavigatorButton(
               screenWidget: DelayedListExample(),
-              title: "Delayed List Example",
+              title: "Delayed List",
               color: Colors.blueGrey,
               textColor: Colors.white,
             ),
@@ -41,7 +41,7 @@ class MenuScreen extends StatelessWidget {
 
             NavigatorButton(
               screenWidget: FadedScreenExample(),
-              title: "Faded Screen Example",
+              title: "Faded Screen",
               color: Colors.deepPurpleAccent,
               textColor: Colors.white,
             ),
@@ -49,7 +49,7 @@ class MenuScreen extends StatelessWidget {
 
             NavigatorButton(
               screenWidget: CircularAnimatedTextExample(),
-              title: "Circular Animated Text Example",
+              title: "Circular Animated Text",
               color: Colors.lightGreenAccent,
             ),
             VSpacer(),

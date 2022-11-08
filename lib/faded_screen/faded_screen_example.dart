@@ -10,24 +10,24 @@ class FadedScreenExample extends StatefulWidget {
 class _FadedScreenExampleState extends State<FadedScreenExample>
   with SingleTickerProviderStateMixin{
 
-final _duration = const Duration(milliseconds: 2000);
+  final _duration = const Duration(milliseconds: 2000);
 
   late final AnimationController _animationController;
   late final Animation _fadeAnimation;
 
-@override
-void initState() {
-  super.initState();
+  @override
+  void initState() {
+    super.initState();
 
-  _animationController = AnimationController(vsync: this, duration: _duration);
-  _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(_animationController);
+    _animationController = AnimationController(vsync: this, duration: _duration);
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(_animationController);
 
-  _animationController.addListener(() {
-    setState(() {});
-  });
+    _animationController.addListener(() {
+      setState(() {});
+    });
 
-  _animationController.forward();
-}
+    _animationController.forward();
+  }
 
   @override
   Widget build(BuildContext context) {

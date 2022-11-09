@@ -142,12 +142,27 @@ class NavigatorButton extends StatelessWidget {
       onPressed: (){
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context)=> screenWidget,
-          ),
+          _getRoute()
         );
       },
     );
   }
+
+  Route _getRoute(){
+    return PageRouteBuilder<SlideTransition>(
+      pageBuilder: (context,animation,secondaryAnimation)=> screenWidget,
+      transitionsBuilder: (context,animation,secondaryAnimation, child){
+
+        final tween = Tween<Offset>(begin: const Offset(0.0,0.1), end: Offset.zero);
+        final curveTween = CurveTween(curve: Curves.ease);
+
+        return SlideTransition(
+          position: animation.drive(curveTween).drive(tween),
+          child: child,
+        );
+      }
+    );
+  }
+
 }
 

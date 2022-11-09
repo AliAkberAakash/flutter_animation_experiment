@@ -20,6 +20,14 @@ class MenuScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             NavigatorButton(
+              screenWidget: ResizeWidgetExample(),
+              title: "Resize Widget",
+              color: Colors.pink,
+              textColor: Colors.white,
+            ),
+            VSpacer(),
+
+            NavigatorButton(
               screenWidget: ShakerWidgetExample(),
               title: "Shaker Widget",
               color: Colors.orangeAccent,
@@ -27,9 +35,9 @@ class MenuScreen extends StatelessWidget {
             VSpacer(),
 
             NavigatorButton(
-              screenWidget: ResizeWidgetExample(),
-              title: "Resize Widget",
-              color: Colors.pink,
+              screenWidget: AnimatedTextExample(),
+              title: "Animated Text",
+              color: Colors.brown,
               textColor: Colors.white,
             ),
             VSpacer(),
@@ -51,13 +59,6 @@ class MenuScreen extends StatelessWidget {
             VSpacer(),
 
             NavigatorButton(
-              screenWidget: CircularAnimatedTextExample(),
-              title: "Circular Animated Text",
-              color: Colors.lightGreenAccent,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
               screenWidget: HeartBeatWidgetExample(),
               title: "Heart Beat",
               color: Colors.blueAccent,
@@ -66,18 +67,17 @@ class MenuScreen extends StatelessWidget {
             VSpacer(),
 
             NavigatorButton(
-              screenWidget: AnimatedTextExample(),
-              title: "Animated Text",
-              color: Colors.brown,
+              screenWidget: BouncingBallExample(),
+              title: "Bouncing Ball",
+              color: Colors.teal,
               textColor: Colors.white,
             ),
             VSpacer(),
 
             NavigatorButton(
-              screenWidget: BouncingBallExample(),
-              title: "Bouncing Ball",
-              color: Colors.brown,
-              textColor: Colors.white,
+              screenWidget: CircularAnimatedTextExample(),
+              title: "Circular Animated Text",
+              color: Colors.lightGreenAccent,
             ),
             VSpacer(),
           ],

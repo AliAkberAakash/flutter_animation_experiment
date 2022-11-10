@@ -6,6 +6,7 @@ import 'package:animation_experiment/faded_screen/faded_screen_example.dart';
 import 'package:animation_experiment/heart_beat_widget/heeart_beat_widget_example.dart';
 import 'package:animation_experiment/resize_widget/resize_widget_example.dart';
 import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
+import 'package:animation_experiment/transform_widget/transform_widget_example.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -78,6 +79,13 @@ class MenuScreen extends StatelessWidget {
               screenWidget: CircularAnimatedTextExample(),
               title: "Circular Animated Text",
               color: Colors.lightGreenAccent,
+            ),
+            VSpacer(),
+
+            NavigatorButton(
+              screenWidget: TransformWidgetExample(),
+              title: "Transform Widget",
+              color: Colors.white,
             ),
             VSpacer(),
           ],

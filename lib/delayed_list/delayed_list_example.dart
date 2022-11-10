@@ -39,6 +39,7 @@ class _DelayedListExampleState extends State<DelayedListExample>
         title: const Text("Delayed ListView"),
       ),
       body: ListView.builder(
+        cacheExtent: 0,
         padding: const EdgeInsets.all(10),
         itemCount: 10,
         itemBuilder: (ctx, idx){
@@ -49,7 +50,7 @@ class _DelayedListExampleState extends State<DelayedListExample>
               child: const CardItem(),
             ),
           );
-        }
+        },
       ),
     );
   }

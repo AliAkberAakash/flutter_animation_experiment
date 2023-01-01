@@ -59,11 +59,7 @@ class _DelayedListExampleState extends State<DelayedListExample>
 
     double tmp = _sizeAnimation.value - idx+1;
 
-    if(tmp<0) {
-      tmp = 0;
-    }
-
-    return tmp;
+    return (tmp<0) ? 0 : tmp;
   }
 
   @override
@@ -86,15 +82,15 @@ class CardItem extends StatelessWidget {
         height: 80,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
+          children: const [
+            Text(
               "This is a title",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
               ),
             ),
             VSpacer(),
-            const Text(
+            Text(
               "This is the body",
             ),
           ],

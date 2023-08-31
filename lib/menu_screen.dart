@@ -8,7 +8,51 @@ import 'package:animation_experiment/pushable_button/pushable_button_example.dar
 import 'package:animation_experiment/resize_widget/resize_widget_example.dart';
 import 'package:animation_experiment/shaker_widget/shaker_widget_example.dart';
 import 'package:animation_experiment/transform_widget/transform_widget_example.dart';
+import 'package:animation_experiment/view_helper/animation_item_ui_model.dart';
 import 'package:flutter/material.dart';
+
+final List<AnimationItemUIModel> viewList = [
+  AnimationItemUIModel(
+    screenWidget: const ResizeWidgetExample(),
+    title: "Resize Widget",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const ShakerWidgetExample(),
+    title: "Shaker Widget",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const AnimatedTextExample(),
+    title: "Animated Text",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const DelayedListExample(),
+    title: "Delayed List",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const FadedScreenExample(),
+    title: "Faded Screen",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const HeartBeatWidgetExample(),
+    title: "Heart Beat",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const BouncingBallExample(),
+    title: "Bouncing Ball",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const PushableButtonExample(),
+    title: "Pushable Button",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const CircularAnimatedTextExample(),
+    title: "Circular Animated Text",
+  ),
+  AnimationItemUIModel(
+    screenWidget: const TransformWidgetExample(),
+    title: "Transform Widget",
+  ),
+];
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -16,88 +60,20 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Animation samples",
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            NavigatorButton(
-              screenWidget: ResizeWidgetExample(),
-              title: "Resize Widget",
-              color: Colors.pink,
-              textColor: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: ShakerWidgetExample(),
-              title: "Shaker Widget",
-              color: Colors.orangeAccent,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: AnimatedTextExample(),
-              title: "Animated Text",
-              color: Colors.brown,
-              textColor: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: DelayedListExample(),
-              title: "Delayed List",
-              color: Colors.blueGrey,
-              textColor: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: FadedScreenExample(),
-              title: "Faded Screen",
-              color: Colors.deepPurpleAccent,
-              textColor: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: HeartBeatWidgetExample(),
-              title: "Heart Beat",
-              color: Colors.blueAccent,
-              textColor: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: BouncingBallExample(),
-              title: "Bouncing Ball",
-              color: Colors.teal,
-              textColor: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: PushableButtonExample(),
-              title: "Pushable Button",
-              color: Colors.white,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: CircularAnimatedTextExample(),
-              title: "Circular Animated Text",
-              color: Colors.lightGreenAccent,
-            ),
-            VSpacer(),
-
-            NavigatorButton(
-              screenWidget: TransformWidgetExample(),
-              title: "Transform Widget",
-              color: Colors.white,
-            ),
-            VSpacer(),
-
-          ],
+        child: ListView.builder(
+          itemCount: viewList.length,
+          itemBuilder: (ctx, idx) {
+            return ListItemUi(
+              animationItemUIModel: viewList[idx],
+            );
+          },
         ),
       ),
     );
@@ -105,8 +81,8 @@ class MenuScreen extends StatelessWidget {
 }
 
 class VSpacer extends StatelessWidget {
-
   final double height;
+
   const VSpacer({Key? key, this.height = 10}) : super(key: key);
 
   @override
@@ -118,8 +94,8 @@ class VSpacer extends StatelessWidget {
 }
 
 class HSpacer extends StatelessWidget {
-
   final double width;
+
   const HSpacer({Key? key, this.width = 10}) : super(key: key);
 
   @override
@@ -130,56 +106,48 @@ class HSpacer extends StatelessWidget {
   }
 }
 
-class NavigatorButton extends StatelessWidget {
+class ListItemUi extends StatelessWidget {
+  final AnimationItemUIModel animationItemUIModel;
 
-  final Widget screenWidget;
-  final String title;
-  final Color color;
-  final Color textColor;
-
-  const NavigatorButton({
+  const ListItemUi({
     Key? key,
-    required this.screenWidget,
-    required this.title,
-    this.color = Colors.lightBlueAccent,
-    this.textColor = Colors.black87,
+    required this.animationItemUIModel,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      minWidth: double.infinity,
-      color: color,
-      child: Text(
-        title,
-        style: TextStyle(
-          color: textColor,
+    return Card(
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            _getRoute(),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            animationItemUIModel.title,
+            style: const TextStyle(fontSize: 24),
+          ),
         ),
       ),
-      onPressed: (){
-        Navigator.push(
-          context,
-          _getRoute()
-        );
-      },
     );
   }
 
-  Route _getRoute(){
+  Route _getRoute() {
     return PageRouteBuilder<SlideTransition>(
-      pageBuilder: (context,animation,secondaryAnimation)=> screenWidget,
-      transitionsBuilder: (context,animation,secondaryAnimation, child){
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            animationItemUIModel.screenWidget,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final tween =
+              Tween<Offset>(begin: const Offset(0.0, 0.1), end: Offset.zero);
+          final curveTween = CurveTween(curve: Curves.ease);
 
-        final tween = Tween<Offset>(begin: const Offset(0.0,0.1), end: Offset.zero);
-        final curveTween = CurveTween(curve: Curves.ease);
-
-        return SlideTransition(
-          position: animation.drive(curveTween).drive(tween),
-          child: child,
-        );
-      }
-    );
+          return SlideTransition(
+            position: animation.drive(curveTween).drive(tween),
+            child: child,
+          );
+        });
   }
-
 }
-

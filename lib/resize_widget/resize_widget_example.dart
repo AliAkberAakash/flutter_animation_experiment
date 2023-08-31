@@ -13,6 +13,7 @@ class _ResizeWidgetExampleState extends State<ResizeWidgetExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

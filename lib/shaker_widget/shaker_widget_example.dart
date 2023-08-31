@@ -15,6 +15,7 @@ class _ShakerWidgetExampleState extends State<ShakerWidgetExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
